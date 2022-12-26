@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public String showUser(@PathVariable("id") int id, Model model) throws AuthenticationException {
+    public String showUser(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", userService.findUserById(id));
         model.addAttribute("roles", userService.findUserById(id).getRoles());
         return "/user/show_user";
